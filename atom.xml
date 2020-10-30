@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>so-so</title>
+  
+  <subtitle>渺渺微尘，淡淡微光</subtitle>
+  <link href="https://so-so-w.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://so-so-w.github.io/"/>
+  <updated>2020-10-29T09:30:25.784Z</updated>
+  <id>https://so-so-w.github.io/</id>
+  
+  <author>
+    <name>w</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo+github搭建个人网站</title>
+    <link href="https://so-so-w.github.io/2020/10/29/hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA/"/>
+    <id>https://so-so-w.github.io/2020/10/29/hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA/</id>
+    <published>2020-10-29T09:26:57.548Z</published>
+    <updated>2020-10-29T09:30:25.784Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>今天又看到一个hexo+github的个人网站，勾起了自己搭一个的兴趣，于是就。。。</p><h2 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h2><p>1.本地新建文件夹 myblog （名称随意）。</p><p>2.进入文件夹，打开cmd命令窗口 （可以直接在文件夹路径处输入cmd）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;第一条   这是安装hexo的基础框架</span><br><span class="line">npm install -g hexo</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第二条   这是初始化hexo框架 这个可能会比较慢</span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第三条 安装所需要的组件</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第四条 编译生成静态页面</span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第五条 启动本地服务</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><h2 id="创建个人仓库"><a href="#创建个人仓库" class="headerlink" title="创建个人仓库"></a>创建个人仓库</h2><p>github上创建一个和你用户名相同的仓库，后面加.github.io，也就是 xxx.github.io</p><h2 id="部署上git"><a href="#部署上git" class="headerlink" title="部署上git"></a>部署上git</h2><p>1.修改_config.yml,YourgithubName就是你的GitHub账户</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;YourgithubName&#x2F;YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>2.安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。<br><code>npm install hexo-deployer-git --save</code><br>然后</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><p>其中 hexo clean清除了你之前生成的东西，也可以不加。<br>hexo generate 顾名思义，生成静态文章，可以用 hexo g缩写<br>hexo deploy 部署文章，可以用hexo d缩写<br>注意deploy时可能要你输入username和password。</p><h2 id="切换next主题"><a href="#切换next主题" class="headerlink" title="切换next主题"></a>切换next主题</h2><p>下载主题(之后可以直接在文件下git pull更新)<br><code>git clone https://github.com/theme-next/hexo-theme-next themes/next</code><br>修改_config.yml, <code>theme: next</code><br>修改next里的配置文件，</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure><h2 id="hexo相关操作api"><a href="#hexo相关操作api" class="headerlink" title="hexo相关操作api"></a>hexo相关操作api</h2><p>官网地址：<a href="https://hexo.io/zh-cn/docs/writing">https://hexo.io/zh-cn/docs/writing</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;今天又看到一个hexo+github的个人网站，勾起了自己搭一个的兴趣，于是就。。。&lt;/p&gt;
+&lt;h2 id=&quot;下载hexo&quot;&gt;&lt;a href=&quot;#下</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://so-so-w.github.io/2020/10/29/hello-world/"/>
+    <id>https://so-so-w.github.io/2020/10/29/hello-world/</id>
+    <published>2020-10-29T09:26:57.547Z</published>
+    <updated>2020-10-28T06:57:53.578Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
