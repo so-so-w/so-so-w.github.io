@@ -28,7 +28,7 @@
 <meta property="og:description" content="惆怅，搭建好这个静态网站以后，为了好看，又去搜索了各种主题和配置。。。这里简单记录下吧。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-02T05:34:45.000Z">
-<meta property="article:modified_time" content="2020-11-03T02:14:17.445Z">
+<meta property="article:modified_time" content="2020-11-03T02:39:33.396Z">
 <meta property="article:author" content="so-so-w">
 <meta property="article:tag" content="博客配置">
 <meta name="twitter:card" content="summary">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-03 10:14:17" itemprop="dateModified" datetime="2020-11-03T10:14:17+08:00">2020-11-03</time>
+                <time title="修改时间：2020-11-03 10:39:33" itemprop="dateModified" datetime="2020-11-03T10:39:33+08:00">2020-11-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,6 +271,8 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Lazyload</span><br><span class="line">## Depends on hexo-lazyload-image</span><br><span class="line">lazyload:</span><br><span class="line">  enable: true</span><br><span class="line">  onlypost: false</span><br><span class="line">  # 图片尚未加载完时，显示指定图片。目录地址为博客根目录下的 source&#x2F;</span><br><span class="line">  loadingImg: &#x2F;uploads&#x2F;loading.gif</span><br></pre></td></tr></table></figure>
 <p>5.链接持久化<br>1）本地安装hexo-abbrlink，执行以下命令：<br><code>npm install hexo-abbrlink --save</code><br>2)添加站点配置文件（注释掉原有的permalink）</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">permalink: posts&#x2F;:abbrlink&#x2F;</span><br><span class="line"></span><br><span class="line"># abbrlink config</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  #support crc16(default) and crc32</span><br><span class="line">  rep: dec    #support dec(default) and hex</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，链接持久化以后，图片地址需要修改，原来是 文件夹+图片名，现在可以直接用 ./图片名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![](文章同名的文件夹名称&#x2F;1.jpg)</span><br><span class="line">改为</span><br><span class="line">![](.&#x2F;1.jpg)</span><br></pre></td></tr></table></figure>
 
 <h2 id="nexT主题配置"><a href="#nexT主题配置" class="headerlink" title="nexT主题配置"></a>nexT主题配置</h2><p><a target="_blank" rel="noopener" href="https://theme-next.js.org/">官方讲解地址</a></p>
 <p>1.选择一个喜欢的主题样式<br>搜索 Schemes ，去除掉选择样式前面的 # 即可。<br>这里我把暗黑模式打开了（在手机上调整为暗黑模式后查看）。</p>
