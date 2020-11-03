@@ -1,8 +1,14 @@
 ---
 title: hexo+github搭建个人网站
+categories: 博客配置
+tags: 搭建博客
+abbrlink: 2625162018
+date: 2020-11-01 13:34:45
 ---
-## 引
+
 今天又看到一个hexo+github的个人网站，勾起了自己搭一个的兴趣，于是就。。。
+
+<!-- more -->
 
 ## 下载hexo
 
@@ -59,7 +65,7 @@ hexo deploy 部署文章，可以用hexo d缩写
 下载主题(之后可以直接在文件下git pull更新)
 `git clone https://github.com/theme-next/hexo-theme-next themes/next`
 修改_config.yml, `theme: next`
-修改next里的配置文件，
+修改next里的配置文件，详细可参考下篇文章
 ```
 #scheme: Muse
 #scheme: Mist
@@ -67,5 +73,3 @@ hexo deploy 部署文章，可以用hexo d缩写
 scheme: Gemini
 ```
 
-## hexo相关操作api
-官网地址：[https://hexo.io/zh-cn/docs/writing](https://hexo.io/zh-cn/docs/writing)
