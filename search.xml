@@ -20,43 +20,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>hexo+github搭建个人网站</title>
-    <url>/posts/2625162018/</url>
-    <content><![CDATA[<p>今天又看到一个hexo+github的个人网站，勾起了自己搭一个的兴趣，于是就。。。</p>
-<a id="more"></a>
-
-<h2 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h2><p>1.本地新建文件夹 myblog （名称随意）。</p>
-<p>2.进入文件夹，打开cmd命令窗口 （可以直接在文件夹路径处输入cmd）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;第一条   这是安装hexo的基础框架</span><br><span class="line">npm install -g hexo</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第二条   这是初始化hexo框架 这个可能会比较慢</span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第三条 安装所需要的组件</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第四条 编译生成静态页面</span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第五条 启动本地服务</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建个人仓库"><a href="#创建个人仓库" class="headerlink" title="创建个人仓库"></a>创建个人仓库</h2><p>github上创建一个和你用户名相同的仓库，后面加.github.io，也就是 xxx.github.io</p>
-<h2 id="部署上git"><a href="#部署上git" class="headerlink" title="部署上git"></a>部署上git</h2><p>1.修改_config.yml,YourgithubName就是你的GitHub账户</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;YourgithubName&#x2F;YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>2.安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。<br><code>npm install hexo-deployer-git --save</code><br>然后</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<p>其中 hexo clean清除了你之前生成的东西，也可以不加。<br>hexo generate 顾名思义，生成静态文章，可以用 hexo g缩写<br>hexo deploy 部署文章，可以用hexo d缩写<br>注意deploy时可能要你输入username和password。</p>
-<h2 id="切换next主题"><a href="#切换next主题" class="headerlink" title="切换next主题"></a>切换next主题</h2><p>下载主题(之后可以直接在文件下git pull更新)<br><code>git clone https://github.com/theme-next/hexo-theme-next themes/next</code><br>修改_config.yml, <code>theme: next</code><br>修改next里的配置文件，详细可参考下篇文章</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>博客配置</category>
-      </categories>
-      <tags>
-        <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/posts/0/</url>
-    <content><![CDATA[<p>线上系统突然CPU100%，你怎么排查？我这边可以给大家看一下我的解答思路：<br>1.先通过top命令找到消耗cpu很高的进程id，假设是2732；<br>top 命令是我们在 Linux 下最常用的命令之一，它可以实时显示正在执行进程的 CPU 使用率、内存使用率以及系统负载等信息。其中上半部分显示的是系统的统计信息，下半部分显示的是进程的使用率统计信息。</p>
-<p>2.执行top -p 2732单独监控该进程<br>3.在第2步的监控界面输入H，获取当前进程下的所有线程信息</p>
-<p>4.找到消耗cpu特别高的线程编号，假设是3288<br>5.执行jstack 2732对当前的进程做dump，输出所有的线程信息<br>6.将第4步得到的线程编号3288转成16进制是0xCD8</p>
-<p>7.根据第6步得到的0xCD8在第5步的线程信息里面去找对应线程内容<br>8.解读线程信息，定位具体代码位置</p>
-<p>最后根据线程名称相关信息进行具体排查（这里明显是GC线程占用了CPU）</p>
-]]></content>
-  </entry>
-  <entry>
     <title>hexo+nexT相关配置</title>
     <url>/posts/989318273/</url>
     <content><![CDATA[<p>惆怅，搭建好这个静态网站以后，为了好看，又去搜索了各种主题和配置。。。这里简单记录下吧。</p>
@@ -110,6 +73,43 @@
       </categories>
       <tags>
         <tag>博客配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/posts/0/</url>
+    <content><![CDATA[<p>线上系统突然CPU100%，你怎么排查？我这边可以给大家看一下我的解答思路：<br>1.先通过top命令找到消耗cpu很高的进程id，假设是2732；<br>top 命令是我们在 Linux 下最常用的命令之一，它可以实时显示正在执行进程的 CPU 使用率、内存使用率以及系统负载等信息。其中上半部分显示的是系统的统计信息，下半部分显示的是进程的使用率统计信息。</p>
+<p>2.执行top -p 2732单独监控该进程<br>3.在第2步的监控界面输入H，获取当前进程下的所有线程信息</p>
+<p>4.找到消耗cpu特别高的线程编号，假设是3288<br>5.执行jstack 2732对当前的进程做dump，输出所有的线程信息<br>6.将第4步得到的线程编号3288转成16进制是0xCD8</p>
+<p>7.根据第6步得到的0xCD8在第5步的线程信息里面去找对应线程内容<br>8.解读线程信息，定位具体代码位置</p>
+<p>最后根据线程名称相关信息进行具体排查（这里明显是GC线程占用了CPU）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo+github搭建个人网站</title>
+    <url>/posts/2625162018/</url>
+    <content><![CDATA[<p>今天又看到一个hexo+github的个人网站，勾起了自己搭一个的兴趣，于是就。。。</p>
+<a id="more"></a>
+
+<h2 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h2><p>1.本地新建文件夹 myblog （名称随意）。</p>
+<p>2.进入文件夹，打开cmd命令窗口 （可以直接在文件夹路径处输入cmd）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;第一条   这是安装hexo的基础框架</span><br><span class="line">npm install -g hexo</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第二条   这是初始化hexo框架 这个可能会比较慢</span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第三条 安装所需要的组件</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第四条 编译生成静态页面</span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第五条 启动本地服务</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建个人仓库"><a href="#创建个人仓库" class="headerlink" title="创建个人仓库"></a>创建个人仓库</h2><p>github上创建一个和你用户名相同的仓库，后面加.github.io，也就是 xxx.github.io</p>
+<h2 id="部署上git"><a href="#部署上git" class="headerlink" title="部署上git"></a>部署上git</h2><p>1.修改_config.yml,YourgithubName就是你的GitHub账户</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;YourgithubName&#x2F;YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>2.安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。<br><code>npm install hexo-deployer-git --save</code><br>然后</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>其中 hexo clean清除了你之前生成的东西，也可以不加。<br>hexo generate 顾名思义，生成静态文章，可以用 hexo g缩写<br>hexo deploy 部署文章，可以用hexo d缩写<br>注意deploy时可能要你输入username和password。</p>
+<h2 id="切换next主题"><a href="#切换next主题" class="headerlink" title="切换next主题"></a>切换next主题</h2><p>下载主题(之后可以直接在文件下git pull更新)<br><code>git clone https://github.com/theme-next/hexo-theme-next themes/next</code><br>修改_config.yml, <code>theme: next</code><br>修改next里的配置文件，详细可参考下篇文章</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>博客配置</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
       </tags>
   </entry>
   <entry>
